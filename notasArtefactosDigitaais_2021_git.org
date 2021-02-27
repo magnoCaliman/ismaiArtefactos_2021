@@ -1,0 +1,17 @@
+* AULA 01.1 - 01/MAR
+
+** Material
+- Kit de componentes
+  - https://mauser.pt/catalog/product_info.php?cPath=1667_2842&products_id=096-6785
+- Arduino
+  - https://mauser.pt/catalog/product_info.php?cPath=1667_2602_1668&products_id=096-2435
+- Cabo USB tipo B - "cabo de impressora"
+  - https://www.cmple.com/content/images/thumbs/usb-2-0-a-male-to-b-male-cable-6-feet-black_NID0011125.jpeg
+  - *Não incluso no kit!*
+
+- Obrigatoriedade de feedback visual no Teams
+  - Webcam ou OBS.Ninja - https://obs.ninja/
+
+** Horário para retirada no CITEI
+- 02/03/2021 (3a-feira) - 14h00 às 16h00
+- 03/03/2021 (4a-feira) - 16h30 às 18h00
