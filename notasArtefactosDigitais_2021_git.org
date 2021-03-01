@@ -37,4 +37,4 @@
 - Polaridade
   - Alguns componentes eletrônicos pressupõe que a eletricidade está a fluir em uma /direção específica/. Outros, nem tanto.
 - Tensão
-  - Todo circuito espera uma /"quantidade"/ certa de eletricidade fluindo entre os polos positivo e negativo. Por vezes, não há problemas em operar um pouco acima ou abaixo desse valor ideal (um engenheiro vai te dizer o contrário...).
+  - Todo circuito espera uma "/quantidade/" certa de eletricidade fluindo entre os polos positivo e negativo. Por vezes, não há problemas em operar um pouco acima ou abaixo desse valor ideal (um engenheiro vai te dizer o contrário...).
