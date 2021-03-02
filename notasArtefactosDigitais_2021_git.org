@@ -38,3 +38,12 @@
   - Alguns componentes eletrônicos pressupõe que a eletricidade está a fluir em uma /direção específica/. Outros, nem tanto.
 - Tensão
   - Todo circuito espera uma "/quantidade/" certa de eletricidade fluindo entre os polos positivo e negativo. Por vezes, não há problemas em operar acima ou abaixo desse valor ideal (um engenheiro vai te dizer o contrário...).
+* AULA 02.1 - 08/MAR
+- Continuação discussão Aula 01.2
+- Instalação da IDE Arduino
+  - Baixar nesse link: https://www.arduino.cc/en/software
+  - *NÃO* usar a versão "ZIP file", e sim o instalador, conforme instruções no [[https://www.arduino.cc/en/Guide/Windows][guia de instalação]]:
+
+#+begin_src 
+Get the latest version from the download page. You can choose between the Installer (.exe) and the Zip packages. We suggest you use the first one that installs directly everything you need to use the Arduino Software (IDE), including the drivers. With the Zip package you need to install the drivers manually.
+#+end_src
