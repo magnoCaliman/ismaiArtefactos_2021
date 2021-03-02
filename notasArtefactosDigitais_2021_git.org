@@ -44,6 +44,6 @@
   - Baixar nesse link: https://www.arduino.cc/en/software
   - *NÃO* usar a versão "ZIP file", e sim o instalador, conforme instruções no [[https://www.arduino.cc/en/Guide/Windows][guia de instalação]]:
 
-#+begin_src 
-Get the latest version from the download page. You can choose between the Installer (.exe) and the Zip packages. We suggest you use the first one that installs directly everything you need to use the Arduino Software (IDE), including the drivers. With the Zip package you need to install the drivers manually.
-#+end_src
+#+begin_quote
+Get the latest version from the download page. You can choose between the Installer (.exe) and the Zip packages. *We suggest you use the first one that installs directly everything you need to use the Arduino Software (IDE), including the drivers*. With the Zip package you need to install the drivers manually.
+#+end_quote
