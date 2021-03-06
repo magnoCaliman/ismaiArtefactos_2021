@@ -44,8 +44,7 @@
 - Continuação discussão Aula 01.2
 
 * AULA 02.2 - 09/MAR
-** Arduino
-*** O que é?
+** 1. O que é?
   - https://www.arduino.cc/
 
 Ecossistema (circuito + linguagem de programação + IDE) que nos permite criar lógicas computacionais para interfacear/controlar hardware e software.
@@ -58,15 +57,15 @@ Ecossistema (circuito + linguagem de programação + IDE) que nos permite criar 
 
 Plataforma open source. Você pode montar o seu em casa (e vender!) e isso nada tem de ilegal.
 
-*** Instalação
-  - Baixar nesse link: https://www.arduino.cc/en/software
-  - *NÃO* usar a versão "ZIP file", e sim o instalador, conforme instruções no [[https://www.arduino.cc/en/Guide/Windows][guia de instalação]]:
+** 2. Instalação
+ - Baixar nesse link: https://www.arduino.cc/en/software
+ - *NÃO* usar a versão "ZIP file", e sim o instalador, conforme instruções no [[https://www.arduino.cc/en/Guide/Windows][guia de instalação]]:
 
-  #+begin_quote
-  Get the latest version from the download page. You can choose between the Installer (.exe) and the Zip packages. *We suggest you use the first one that installs directly everything you need to use the Arduino Software (IDE), including the drivers*. With the Zip package you need to install the drivers manually.
-  #+end_quote
+ #+begin_quote
+ Get the latest version from the download page. You can choose between the Installer (.exe) and the Zip packages. *We suggest you use the first one that installs directly everything you need to use the Arduino Software (IDE), including the drivers*. With the Zip package you need to install the drivers manually.
+ #+end_quote
 
-*** Blink
+** 3. Blink
 1. Abra uma janela nova da IDE do Arduino, delete tudo que lá está, copie e cole o código abaixo
 2. Selecione a placa e porta corretas em ~Tools -> Board~ e ~Tools -> Port~
    1. Placa? Porta? 
@@ -74,7 +73,7 @@ Plataforma open source. Você pode montar o seu em casa (e vender!) e isso nada 
 4. Faça upload
    1. Upload para onde?
 
-**** Código
+*** 3.1 Código
 #+begin_src c
 int pinoLed = 13;
 
@@ -92,11 +91,11 @@ void loop()
 } 
 #+end_src
 
-***** Comentários
+*** 3.2 Comentários
 - Estrutura de pastas
 - Convenção de nomenclatura
 
-***** Modificações
+*** 3.3 Modificações
 - Que estruturas de código és capaz de reconhecer nesse exemplo?
 - O que é possível de modificar, sem alterar o circuito?
 
