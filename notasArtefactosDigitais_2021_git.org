@@ -43,59 +43,61 @@
 * AULA 02.1 - 08/MAR
 - Continuação discussão Aula 01.2
 
-* AULA 02.2 - 09/MAR
-** 1. O que é?
-  - https://www.arduino.cc/
+# * AULA 02.2 - 09/MAR
+# ** 1. O que é?
+#   - https://www.arduino.cc/
 
-Ecossistema (circuito + linguagem de programação + IDE) que nos permite criar lógicas computacionais para interfacear/controlar hardware e software.
+# Ecossistema (circuito + linguagem de programação + IDE) que nos permite criar lógicas computacionais para interfacear/controlar hardware e software.
 
-- O que dá para fazer?
-  - Coin slot detector: https://www.instructables.com/id/coin-slot-detector/
-  - Geiger counter: https://www.cooking-hacks.com/documentation/tutorials/geiger-counter-radiation-sensor-board-arduino-raspberry-pi-tutorial
-  - Beat slicer: https://vimeo.com/45422593 / https://vimeo.com/48347752
-  - Cabinet of Curiosness: https://youtu.be/JCiXV6b7N0A
+# - O que dá para fazer?
+#   - Coin slot detector: https://www.instructables.com/id/coin-slot-detector/
+#   - Geiger counter: https://www.cooking-hacks.com/documentation/tutorials/geiger-counter-radiation-sensor-board-arduino-raspberry-pi-tutorial
+#   - Beat slicer: https://vimeo.com/45422593 / https://vimeo.com/48347752
+#   - Cabinet of Curiosness: https://youtu.be/JCiXV6b7N0A
+#   - Et cetera - https://www.instructables.com/howto/arduino/
 
-Plataforma open source. Você pode montar o seu em casa (e vender!) e isso nada tem de ilegal.
+# Plataforma open source. Você pode montar o seu em casa (e vender!) e isso nada tem de ilegal.
 
-** 2. Instalação
- - Baixar nesse link: https://www.arduino.cc/en/software
- - *NÃO* usar a versão "ZIP file", e sim o instalador, conforme instruções no [[https://www.arduino.cc/en/Guide/Windows][guia de instalação]]:
+# ** 2. Instalação
+#  - Baixar nesse link: https://www.arduino.cc/en/software
+#  - *NÃO* usar a versão "ZIP file", e sim o instalador, conforme instruções no [[https://www.arduino.cc/en/Guide/Windows][guia de instalação]]:
 
- #+begin_quote
- Get the latest version from the download page. You can choose between the Installer (.exe) and the Zip packages. *We suggest you use the first one that installs directly everything you need to use the Arduino Software (IDE), including the drivers*. With the Zip package you need to install the drivers manually.
- #+end_quote
+# #+begin_quote
+#  Get the latest version from the download page. You can choose between the Installer (.exe) and the Zip packages. *We suggest you use the first one that installs directly everything you need to use the Arduino Software (IDE), including the drivers*. With the Zip package you need to install the drivers manually.
+# #+end_quote
 
-** 3. Blink
-1. Abra uma janela nova da IDE do Arduino, delete tudo que lá está, copie e cole o código abaixo
-2. Selecione a placa e porta corretas em ~Tools -> Board~ e ~Tools -> Port~
-   1. Placa? Porta? 
-3. Salve o arquivo
-4. Faça upload
-   1. Upload para onde?
+# ** 3. Blink
+# 1. Abra uma janela nova da IDE do Arduino, delete tudo que lá está, copie e cole o código abaixo
+# 2. Selecione a placa e porta corretas em ~Tools -> Board~ e ~Tools -> Port~
+#    1. Placa? Porta? 
+# 3. Salve o arquivo
+# 4. Faça upload
+#    1. Upload para onde?
 
-*** 3.1 Código
-#+begin_src c
-int pinoLed = 13;
+# *** 3.1 Código
+# #+begin_src c
+# int pinoLed = 13;
 
-void setup()
-{
-  pinMode(pinoLed, OUTPUT);
-}
+# void setup()
+# {
+#   pinMode(pinoLed, OUTPUT);
+# }
 
-void loop()
-{
-  digitalWrite(pinoLed, HIGH);
-  delay(1000);
-  digitalWrite(pinoLed, LOW);
-  delay(500);  
-} 
-#+end_src
+# void loop()
+# {
+#   digitalWrite(pinoLed, HIGH);
+#   delay(1000);
+#   digitalWrite(pinoLed, LOW);
+#   delay(500);  
+# } 
+# #+end_src
 
-*** 3.2 Comentários
-- Estrutura de pastas
-- Convenção de nomenclatura
+# *** 3.2 Comentários
+# - Estrutura de pastas
+# - Convenção de nomenclatura
+# - Onde está o circuito?
 
-*** 3.3 Modificações
-- Que estruturas de código és capaz de reconhecer nesse exemplo?
-- O que é possível de modificar, sem alterar o circuito?
+# *** 3.3 Modificações
+# - Que estruturas de código és capaz de reconhecer nesse exemplo?
+# - O que é possível de modificar, sem alterar o circuito?
 
