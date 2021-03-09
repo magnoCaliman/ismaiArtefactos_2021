@@ -101,3 +101,6 @@ void loop()
 - Que estruturas de código és capaz de reconhecer nesse exemplo?
 - O que é possível de modificar, sem alterar o circuito?
 
+** 4. Anotações das últimas duas aulas:
+
+[[./img/img1_artefDig.png]]
