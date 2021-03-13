@@ -122,5 +122,6 @@ void loop()
 - Para /escrita/ de pinos, eles podem ser encarados como mini-fichas de 5V (no Arduino UNO), controladas via código.
 #+begin_quote
 When reading or writing to a digital pin there are only two possible values a pin can take/be-set-to: ~HIGH~ and ~LOW~.
+Defining Pin Levels: HIGH and LOW - https://www.arduino.cc/reference/en/language/variables/constants/constants/
 #+end_quote
-https://www.arduino.cc/reference/en/language/variables/constants/constants/
+
