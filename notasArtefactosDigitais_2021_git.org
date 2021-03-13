@@ -128,7 +128,7 @@ Defining Pin Levels: HIGH and LOW - https://www.arduino.cc/reference/en/language
 #+end_quote
 
 * AULA 03.2 - 16/MAR
-** Protoboard
+** 1. Protoboard
 - Ex.1
   - Energia elétrica flui na horizontal por entre as linhas superiores e inferiores, e na vertical por entre as colunas.
   - Topo e fundo *não* estão conectados entre sí!
@@ -138,12 +138,12 @@ Defining Pin Levels: HIGH and LOW - https://www.arduino.cc/reference/en/language
   - Código "Blink" da aula passada, agora no pino 7
   - Por que não resulta?
 [[./assets/aula03_2-ex2.png]]
-** Componentes
-*** LED
+** 2. Componentes
+*** 2.1 LED
 - Light Emiting Diode
 - Precisa de ~2V (varia de acordo com o [[https://www.circuitbread.com/ee-faq/the-forward-voltages-of-different-leds][material e a cor]]).
 - Polarizado: recebe tensão na perna maior ("/anodo/"), e conecta GND na perna menor ("/catodo/").
-*** Resistor
+*** 2.2 Resistor
 - Diminui a quantidade de tensão no circuito. Faz LED sobreviver bateria de 9V!
 - Valor medido em Ω (ohms). Quanto maior o valor, maior a resistência elétrica. Vossos kits possuem resistências de 200Ω, 1KΩ e 10KΩ.
 - Não polarizado.
@@ -153,11 +153,12 @@ Defining Pin Levels: HIGH and LOW - https://www.arduino.cc/reference/en/language
 - Ex.3
 [[./assets/aula03_2-ex3.png]]
 
-** Blink (certo!) na protoboard
+** 3. Blink (certo!) na protoboard
 - Ex.4
 [[./assets/aula03_2-ex4.png]]
-** Ground compartilhado
+** 4. Ground compartilhado
 - Muitas vezes vários componentes do circuito /compartilham o mesmo ground/. Ou seja, o negativo da nossa alimentação de energia (pino GND do Arduino) está conectado em vários lugares /ao mesmo tempo/.
+- Ex.5
 *** Código
 #+begin_src c
 int pinoLed_R1 = 7;
@@ -180,8 +181,7 @@ void loop()
 } 
 #+end_src
 *** Circuito
-- Ex.5
 [[./assets/aula03_2-ex5.png]]
-** TPC
-*** 1. 
+** 5. TPC
 [[./assets/aula03_2-tpc1.gif]]
+[[./assets/aula03_2-tpc2.gif]]
