@@ -184,4 +184,4 @@ void loop()
 [[./assets/aula03_2-ex5.png]]
 ** TPC
 *** 1. 
-[[/.assets/aula03_2-tpc1.gif]]
+[[./assets/aula03_2-tpc1.gif]]
