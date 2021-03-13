@@ -183,5 +183,8 @@ void loop()
 *** Circuito
 [[./assets/aula03_2-ex5.png]]
 ** 5. TPC
+*** 5.1 
 [[./assets/aula03_2-tpc1.gif]]
+*** 5.2
 [[./assets/aula03_2-tpc2.gif]]
+- Obs: para esse segundo TPC, é necessário o uso de duas estruturas computacionais já estudadas em outros semestres: arrays e loops ~for~. Consulte a documentação do Arduino para saber as sintaxes corretas (algumas são idênticas ao Processing...)
