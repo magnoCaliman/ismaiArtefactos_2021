@@ -105,12 +105,7 @@ void loop()
 
 [[./img/img1_artefDig.png]]
 * AULA 03.1 - 15/MAR
-** Documentação
-- Regra #0 em programação: RTFM
-  - https://www.arduino.cc/reference/en/
-
-- Pinos 
-** Vocabulário
+** 1.1 Vocabulário de Blink
 - ~void setup(){}~
 - ~void loop(){}~
 - ~pinMode()~
@@ -118,9 +113,12 @@ void loop()
 - ~digitalWrite()~
   - ~HIGH~ / ~LOW~
 - ~delay()~
-\\
 
-** Comentários
+*** 1.2 Documentação
+ - Regra #0 em programação: RTFM
+   - https://www.arduino.cc/reference/en/
+
+** 2. Comentários
 - Para /escrita/ de pinos, eles podem ser encarados como mini-fichas de 5V (no Arduino UNO), controladas via código.
 #+begin_quote
 When reading or writing to a digital pin there are only two possible values a pin can take/be-set-to: ~HIGH~ and ~LOW~.
