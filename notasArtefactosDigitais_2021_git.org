@@ -106,6 +106,8 @@ void loop()
 [[./img/img1_artefDig.png]]
 * AULA 03.1 - 15/MAR
 ** 1.1 Vocabulário de Blink
+- ~int~
+- ~=~
 - ~void setup(){}~
 - ~void loop(){}~
 - ~pinMode()~
