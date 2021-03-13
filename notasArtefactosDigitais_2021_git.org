@@ -123,3 +123,4 @@ void loop()
 #+begin_quote
 When reading or writing to a digital pin there are only two possible values a pin can take/be-set-to: ~HIGH~ and ~LOW~.
 #+end_quote
+https://www.arduino.cc/reference/en/language/variables/constants/constants/
