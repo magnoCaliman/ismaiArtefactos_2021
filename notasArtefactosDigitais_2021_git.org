@@ -103,7 +103,7 @@ void loop()
 
 ** 4. Anotações das últimas duas aulas:
 
-[[./img/img1_artefDig.png]]
+[[./assets/aula02_1-notas.png]]
 * AULA 03.1 - 15/MAR
 ** 1.1 Vocabulário de Blink
 - ~int~
@@ -127,3 +127,61 @@ When reading or writing to a digital pin there are only two possible values a pi
 Defining Pin Levels: HIGH and LOW - https://www.arduino.cc/reference/en/language/variables/constants/constants/
 #+end_quote
 
+* AULA 03.2 - 16/MAR
+** Protoboard
+- Ex.1
+  - Energia elétrica flui na horizontal por entre as linhas superiores e inferiores, e na vertical por entre as colunas.
+  - Topo e fundo *não* estão conectados entre sí!
+[[./assets/aula03_2-ex1.png]]
+
+- Ex.2
+  - Código "Blink" da aula passada, agora no pino 7
+  - Por que não resulta?
+[[./assets/aula03_2-ex2.png]]
+** Componentes
+*** LED
+- Light Emiting Diode
+- Precisa de ~2V (varia de acordo com o [[https://www.circuitbread.com/ee-faq/the-forward-voltages-of-different-leds][material e a cor]]).
+- Polarizado: recebe tensão na perna maior ("/anodo/"), e conecta GND na perna menor ("/catodo/").
+*** Resistor
+- Diminui a quantidade de tensão no circuito. Faz LED sobreviver bateria de 9V!
+- Valor medido em Ω (ohms). Quanto maior o valor, maior a resistência elétrica. Vossos kits possuem resistências de 200Ω, 1KΩ e 10KΩ.
+- Não polarizado.
+- Calcular o valor exato de resistência necessária, no nosso caso, não será tão importante.
+  - Para os interessados: [[https://www.fluke.com/en-us/learn/blog/electrical/what-is-ohms-law][Lei de Ohms]]
+
+- Ex.3
+[[./assets/aula03_2-ex3.png]]
+
+** Blink (certo!) na protoboard
+- Ex.4
+[[./assets/aula03_2-ex4.png]]
+** Ground compartilhado
+- Muitas vezes vários componentes do circuito /compartilham o mesmo ground/. Ou seja, o negativo da nossa alimentação de energia (pino GND do Arduino) está conectado em vários lugares /ao mesmo tempo/.
+*** Código
+#+begin_src c
+int pinoLed_R1 = 7;
+int pinoLed_R2 = 8;
+
+void setup()
+{
+  pinMode(pinoLed_R1, OUTPUT);
+  pinMode(pinoLed_R2, OUTPUT);
+}
+
+void loop()
+{
+  digitalWrite(pinoLed_R1, HIGH);
+  digitalWrite(pinoLed_R2, HIGH);
+  delay(1000);
+  digitalWrite(pinoLed_R1, LOW);
+  digitalWrite(pinoLed_R2, LOW);
+  delay(500);
+} 
+#+end_src
+*** Circuito
+- Ex.5
+[[./assets/aula03_2-ex5.png]]
+** TPC
+*** 1. 
+[[/.assets/aula03_2-tpc1.gif]]
