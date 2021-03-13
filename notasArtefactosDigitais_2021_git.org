@@ -104,3 +104,24 @@ void loop()
 ** 4. Anotações das últimas duas aulas:
 
 [[./img/img1_artefDig.png]]
+* AULA 03.1 - 15/MAR
+** Documentação
+- Regra #0 em programação: RTFM
+  - https://www.arduino.cc/reference/en/
+
+- Pinos 
+** Vocabulário
+- ~void setup(){}~
+- ~void loop(){}~
+- ~pinMode()~
+  - ~OUTPUT~
+- ~digitalWrite()~
+  - ~HIGH~ / ~LOW~
+- ~delay()~
+\\
+
+** Comentários
+- Para /escrita/ de pinos, eles podem ser encarados como mini-fichas de 5V (no Arduino UNO), controladas via código.
+#+begin_quote
+When reading or writing to a digital pin there are only two possible values a pin can take/be-set-to: ~HIGH~ and ~LOW~.
+#+end_quote
