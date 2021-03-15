@@ -183,7 +183,7 @@ void loop()
 *** Circuito
 [[./assets/aula03_2-ex5.png]]
 ** 5. TPC
-Construir circuito na protoboard e implementar código para reproduzir o comportamento demonstrado abaixo:
+Construir circuito na protoboard e implementar código para reproduzir os comportamentos demonstrados abaixo:
 *** 5.1 - alternaPisca
 [[./assets/aula03_2-tpc1.gif]]
 *** 5.2 - linhaLed
