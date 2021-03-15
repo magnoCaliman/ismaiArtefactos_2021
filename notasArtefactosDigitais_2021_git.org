@@ -183,8 +183,32 @@ void loop()
 *** Circuito
 [[./assets/aula03_2-ex5.png]]
 ** 5. TPC
-*** 5.1 
+*** 5.1 - alternaPisca
 [[./assets/aula03_2-tpc1.gif]]
-*** 5.2
+*** 5.2 - linhaLed
 [[./assets/aula03_2-tpc2.gif]]
 - Obs: para esse segundo TPC, é necessário o uso de duas estruturas computacionais já estudadas em outros semestres: arrays e loops ~for~. Consulte a documentação do Arduino para saber as sintaxes corretas (algumas são idênticas ao Processing...)
+- Data de entrega - 23/03
+*** 5.3 - Formatos de entrega
+- Upload na opção "Entrega de trabalhos" do portal. 
+- Arquivo do código, com comentários ao topo especificando a qual aula exercício se refere, e contendo link de YouTube para video de demonstração do circuito a funcionar:
+
+#+begin_src c
+//AULA 02 - BLINK
+//https://www.youtube.com/watch?v=dQw4w9WgXcQ
+
+int pinoLed = 13;
+
+void setup()
+{
+  pinMode(pinoLed, OUTPUT);
+}
+
+void loop()
+{
+  digitalWrite(pinoLed, HIGH);
+  delay(1000);
+  digitalWrite(pinoLed, LOW);
+  delay(500);  
+} 
+#+end_src
