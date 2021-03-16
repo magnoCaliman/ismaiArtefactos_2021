@@ -145,7 +145,7 @@ Defining Pin Levels: HIGH and LOW - https://www.arduino.cc/reference/en/language
 - Polarizado: recebe tensão na perna maior ("/anodo/"), e conecta GND na perna menor ("/catodo/").
 *** 2.2 Resistor
 - Diminui a quantidade de tensão no circuito. Faz LED sobreviver bateria de 9V!
-- Valor medido em Ω (ohms). Quanto maior o valor, maior a resistência elétrica. Vossos kits possuem resistências de 200Ω, 1KΩ e 10KΩ.
+- Valor medido em Ω (ohms). Quanto maior o valor, maior a resistência elétrica. Vossos kits possuem resistências de 220Ω, 1KΩ e 10KΩ.
 - Não polarizado.
 - Calcular o valor exato de resistência necessária, no nosso caso, não será tão importante.
   - Para os interessados: [[https://www.fluke.com/en-us/learn/blog/electrical/what-is-ohms-law][Lei de Ohms]]
