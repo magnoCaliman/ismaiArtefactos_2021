@@ -213,3 +213,68 @@ void loop()
   delay(500);  
 } 
 #+end_src
+* AULA 04.1 - 22/MAR
+- Dúvidas TPC da aula 03.2
+- Reforçar: formato de entrega é via upload do *arquivo* de código.
+* AULA 04.2 - 23/MAR
+** 1. Piezo buzzer
+- Cristal piezo-elétrico
+  - Piezoelectricity - why hitting crystals makes electricity - https://www.youtube.com/watch?v=wcJXA8IqYl8
+  - DIY contact mic - https://www.youtube.com/watch?v=aOJuCYgmPPE
+- Polarizado (mas não liga muito pra isso...)
+*** 1.1 Ativo vs. passivo
+- Experimente o seguinte circuito, usando o sketch /Blink/, com os dois diferentes buzzers contidos no kit:
+  - Obs: por razão de simplicidade, a protoboard não está demonstrada no gráfico. Mas é necessária para a construção.
+[[./assets/aula04_1-ex1.png]]
+- Qual a diferença de comportamento?
+** 2. ~tone()~
+- Ex.1
+#+begin_src c
+int pinoPiezzo = 5;
+
+void setup()
+{
+  pinMode(pinoPiezzo, OUTPUT);
+}
+
+void loop()
+{
+  tone(pinoPiezzo, 200);
+}
+#+end_src
+
+- Ex.2 - agora vários sons em sequência
+#+begin_src c
+int pinoPiezzo = 5;
+int duracaoSom = 90;
+int tempoPausa = 100;
+
+void setup()
+{
+  pinMode(pinoPiezzo, OUTPUT);
+}
+
+void loop()
+{
+  tone(pinoPiezzo, 100, duracaoSom);
+  delay(tempoPausa);
+  tone(pinoPiezzo, 200, duracaoSom);
+  delay(tempoPausa);
+  tone(pinoPiezzo, 300, duracaoSom);
+  delay(tempoPausa);
+  tone(pinoPiezzo, 400, duracaoSom);
+  delay(tempoPausa);
+}
+#+end_src
+
+- Que valores de frequência escolher?
+  - Razões perfeitas (dobro, metade, 1/3, etc)
+  - Progressões geométricas e/ou aritméticas
+  - Notas musicas: https://pages.mtu.edu/~suits/notefreqs.html
+  - [[https://www.arduino.cc/reference/en/language/functions/random-numbers/random/][Qualquer um...]]
+
+** 3. TPC
+*** 3.1 - strangerThings
+Ouça [[https://www.youtube.com/watch?v=-RcPZdihrp4][essa música]]. Sabendo que a frequência em Hertz das notas que compõe a melodia principal são ~{130, 164, 196, 246, 260, 246, 196, 164}~, crie circuito usando o buzzer e a função ~tone()~ que reproduza essa melodia.
+*** 3.2 - soundLight
+Experimente livremente com os conceitos até aqui vistos, e crie circuito que integre som e luz de maneira sincronizada.
