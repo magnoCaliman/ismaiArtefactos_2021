@@ -277,4 +277,4 @@ void loop()
 *** 3.1 - strangerThings
 Ouça [[https://www.youtube.com/watch?v=-RcPZdihrp4][essa música]]. Sabendo que a frequência em Hertz das notas que compõe a melodia principal são ~{130, 164, 196, 246, 260, 246, 196, 164}~, crie circuito usando o buzzer e a função ~tone()~ que reproduza essa melodia.
 *** 3.2 - soundLight
-Experimente livremente com os conceitos até aqui vistos, e crie circuito que integre som e luz de maneira sincronizada.
+Experimente livremente com os conceitos até aqui vistos, e crie circuito que propõe integração entre luz e som.
