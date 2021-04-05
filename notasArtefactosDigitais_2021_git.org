@@ -280,7 +280,7 @@ void loop()
 - Experimente livremente com os conceitos até aqui vistos, e crie circuito que propõe integração entre luz e som.
 - Data de entrega de ambos TPC: 05/04
 * AULA 05.1 - 06/ABR
-** Estrutura de controle ~for()~
+** 1. Estrutura de controle ~for()~
 - Da [[https://www.arduino.cc/reference/en/language/structure/control-structure/for/][documentação]]:
   - "The ~for~ statement is used to repeat a block of statements enclosed in curly braces"
 
@@ -293,11 +293,11 @@ for (initialization; condition; increment) {
 
 - Maneira simples de entender o ~for~: uma /condicional repetível/. Uma amálgama de ~if()~ com ~void loop()~
 
-- Exemplo 01:
-  - 3 leds ligados aos pinos 9, 10 e 11
-    - Obs.: não esquecer do resistor!
+*** Ex.1:
+- 3 leds ligados aos pinos 9, 10 e 11
+  - Obs.: não esquecer do resistor!
 
-  - Versão sem ~for~:
+- Versão sem ~for~:
 #+begin_src c
 int pinoLed_R1 = 9;
 int pinoLed_R2 = 10;
@@ -325,7 +325,7 @@ void loop()
 }
 #+end_src
 
-  - Versão com ~for~:
+- Versão com ~for~:
 #+begin_src c
 int tempoDelay = 500;
 
@@ -352,7 +352,7 @@ void loop()
   - É permitido declarar a variável ~int i = 0~ duas vezes (linhas 5 e 13)?
   - Por que após o led do pino 11 acender, o processo se repete? Qual a relação disso com o valor da variável ~i~?
 
-** Arrays
+** 2. Arrays
 - Da [[https://www.arduino.cc/reference/en/language/variables/data-types/array/][documentação]]:
   - "An array is a collection of variables that are accessed with an index number"
 
@@ -365,7 +365,7 @@ int minhaListaDeNumeros[] = {2, 5, 99, 420, 666, 1234};
 
 - Maneira simples de entender um array: um /tipo de variável/ ("data type") que contém uma /lista/ de diversos itens. Cada item pode ser acessado individualmente de acordo com sua /posição/ na lista ("index number").
 
-- Exemplo 02 (no Processing!):
+*** Ex.2 (no Processing!):
 #+begin_src c
 int minhaListaDeNumeros[] = {3, 5, 99, 420, 666, 1234};
 
@@ -376,15 +376,15 @@ println(minhaListaDeNumeros[2]);
 - Da documentação: "Arrays are zero indexed"
   - ~minhaListaDeNumeros[0] == 3~
   - ~minhaListaDeNumeros[1] == 5~
-  - ~minhaListaDeNumeros[0] == 99~
+  - ~minhaListaDeNumeros[2] == 99~
   - etc...
 
 - Perguntas:
   - Quantos itens possui a o array ~minhaListaDeNumeros~?
   - Qual o index do item ~1234~?
 
-- Exemplo 03 (no Arduino):
-  - Refactorar o Exemplo 01, agora usando arrays + ~for~
+*** Ex.3 (no Arduino):
+- Refactorar o Exemplo 01, agora usando arrays + ~for~
 
 #+begin_src c
 int listaPinos[] = {9, 10, 11};
@@ -410,12 +410,9 @@ void loop()
 }
 #+end_src
 
-- Pergunta:
-  - E se nossos leds não estivessem ligados em pinos adjacentes? Por exemplo, nos pinos 3, 5 e 6?
-
-- Exemplo 04:
-  - 6 leds ligados aos pinos 3, 5, 6, 9, 10 e 11.
-  - Usando variável para indicar a quantidade de itens na lista (como no [[https://www.arduino.cc/en/Tutorial/KnightRider][exemplo da documentação]])
+*** Ex.4:
+- 6 leds ligados aos pinos 3, 5, 6, 9, 10 e 11.
+- Usando variável para indicar a quantidade de itens na lista (como no [[https://www.arduino.cc/en/Tutorial/KnightRider][exemplo da documentação]]).
 
 #+begin_src c
 int listaPinos[] = {3, 5, 6, 9, 10, 11};
