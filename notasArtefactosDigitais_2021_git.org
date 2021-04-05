@@ -284,17 +284,18 @@ void loop()
 - Da [[https://www.arduino.cc/reference/en/language/structure/control-structure/for/][documentação]]:
   - "The ~for~ statement is used to repeat a block of statements enclosed in curly braces"
 
-  - Sintaxe:
+- Sintaxe:
 #+begin_src c
 for (initialization; condition; increment) {
   // statement(s);
 }
 #+end_src
 
-- Maneira simples de entender o ~for~: uma /condicional repetível/. Uma amálgama de ~if()~ com ~void loop()~...
+- Maneira simples de entender o ~for~: uma /condicional repetível/. Uma amálgama de ~if()~ com ~void loop()~
 
-- Exemplo:
+- Exemplo 01:
   - 3 leds ligados aos pinos 9, 10 e 11
+    - Obs.: não esquecer do resistor!
 
   - Versão sem ~for~:
 #+begin_src c
@@ -348,6 +349,96 @@ void loop()
 #+end_src
 
 - Perguntas:
-  - Por que os leds acendem, dos pinos 9 ao 11, /e depois o processo se repete?/. Em outras palavras, por que não para, após acender o led do pino 11?
-  - E se nossos leds não estivessem ligados em pinos adjacentes? Por exemplo, nos pinos 5, 6 e 9?
+  - É permitido declarar a variável ~int i = 0~ duas vezes (linhas 5 e 13)?
+  - Por que após o led do pino 11 acender, o processo se repete? Qual a relação disso com o valor da variável ~i~?
+
+** Arrays
+- Da [[https://www.arduino.cc/reference/en/language/variables/data-types/array/][documentação]]:
+  - "An array is a collection of variables that are accessed with an index number"
+
+- Sintaxe
+  - Linguagens diferentes vão ter diferentes sintaxes. Mesmo dentro da mesma linguagem, diferentes métodos às vezes podem ser usados.
+  - Declaração de um array que contém números inteiros:
+#+begin_src c
+int minhaListaDeNumeros[] = {2, 5, 99, 420, 666, 1234};
+#+end_src
+
+- Maneira simples de entender um array: um /tipo de variável/ ("data type") que contém uma /lista/ de diversos itens. Cada item pode ser acessado individualmente de acordo com sua /posição/ na lista ("index number").
+
+- Exemplo 02 (no Processing!):
+#+begin_src c
+int minhaListaDeNumeros[] = {3, 5, 99, 420, 666, 1234};
+
+//retorna o item do array na posição (index) 2
+println(minhaListaDeNumeros[2]);
+#+end_src
+
+- Da documentação: "Arrays are zero indexed"
+  - ~minhaListaDeNumeros[0] == 3~
+  - ~minhaListaDeNumeros[1] == 5~
+  - ~minhaListaDeNumeros[0] == 99~
+  - etc...
+
+- Perguntas:
+  - Quantos itens possui a o array ~minhaListaDeNumeros~?
+  - Qual o index do item ~1234~?
+
+- Exemplo 03 (no Arduino):
+  - Refactorar o Exemplo 01, agora usando arrays + ~for~
+
+#+begin_src c
+int listaPinos[] = {9, 10, 11};
+int tempoDelay = 500;
+
+void setup()
+{
+  Serial.begin(9600);
+  for (int i = 0; i < 3; i = i + 1)
+  {
+    pinMode(listaPinos[i], OUTPUT);  
+  }  
+}
+
+void loop()
+{
+  for (int i = 0; i < 3; i = i + 1)
+  {
+    digitalWrite(listaPinos[i], HIGH);
+    delay(tempoDelay);
+    digitalWrite(listaPinos[i], LOW);
+  }
+}
+#+end_src
+
+- Pergunta:
+  - E se nossos leds não estivessem ligados em pinos adjacentes? Por exemplo, nos pinos 3, 5 e 6?
+
+- Exemplo 04:
+  - 6 leds ligados aos pinos 3, 5, 6, 9, 10 e 11.
+  - Usando variável para indicar a quantidade de itens na lista (como no [[https://www.arduino.cc/en/Tutorial/KnightRider][exemplo da documentação]])
+
+#+begin_src c
+int listaPinos[] = {3, 5, 6, 9, 10, 11};
+int tempoDelay = 500;
+int quantItensLista = 6;
+
+void setup()
+{
+  for (int i = 0; i < quantItensLista; i = i + 1)
+  {
+    pinMode(listaPinos[i], OUTPUT);  
+  }  
+}
+
+void loop()
+{
+  for (int i = 0; i < quantItensLista; i = i + 1)
+  {
+    digitalWrite(listaPinos[i], HIGH);
+    delay(tempoDelay);
+    digitalWrite(listaPinos[i], LOW);
+  }
+}
+#+end_src
+
 
