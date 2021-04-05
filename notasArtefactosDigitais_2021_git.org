@@ -279,3 +279,75 @@ void loop()
 *** 3.2 - soundLight
 - Experimente livremente com os conceitos até aqui vistos, e crie circuito que propõe integração entre luz e som.
 - Data de entrega de ambos TPC: 05/04
+* AULA 05.1 - 06/ABR
+** Estrutura de controle ~for()~
+- Da [[https://www.arduino.cc/reference/en/language/structure/control-structure/for/][documentação]]:
+  - "The ~for~ statement is used to repeat a block of statements enclosed in curly braces"
+
+  - Sintaxe:
+#+begin_src c
+for (initialization; condition; increment) {
+  // statement(s);
+}
+#+end_src
+
+- Maneira simples de entender o ~for~: uma /condicional repetível/. Uma amálgama de ~if()~ com ~void loop()~...
+
+- Exemplo:
+  - 3 leds ligados aos pinos 9, 10 e 11
+
+  - Versão sem ~for~:
+#+begin_src c
+int pinoLed_R1 = 9;
+int pinoLed_R2 = 10;
+int pinoLed_R3 = 11;
+int tempoDelay = 500;
+
+void setup() 
+{
+  pinMode(pinoLed_R1, OUTPUT);
+  pinMode(pinoLed_R2, OUTPUT);
+  pinMode(pinoLed_R3, OUTPUT);
+}
+
+void loop() 
+{
+  digitalWrite(pinoLed_R1, HIGH);
+  delay(tempoDelay);
+  digitalWrite(pinoLed_R1, LOW);
+  digitalWrite(pinoLed_R2, HIGH);
+  delay(tempoDelay);
+  digitalWrite(pinoLed_R2, LOW);
+  digitalWrite(pinoLed_R3, HIGH);
+  delay(tempoDelay);
+  digitalWrite(pinoLed_R3,LOW);
+}
+#+end_src
+
+  - Versão com ~for~:
+#+begin_src c
+int tempoDelay = 500;
+
+void setup()
+{
+  for (int i = 9; i <= 11; i = i + 1)
+  {
+    pinMode(i, OUTPUT);
+  }
+}
+
+void loop()
+{ 
+  for (int i = 9; i <= 11; i = i + 1)
+  {
+    digitalWrite(i, HIGH);
+    delay(tempoDelay);
+    digitalWrite(i, LOW);
+  }
+}
+#+end_src
+
+- Perguntas:
+  - Por que os leds acendem, dos pinos 9 ao 11, /e depois o processo se repete?/. Em outras palavras, por que não para, após acender o led do pino 11?
+  - E se nossos leds não estivessem ligados em pinos adjacentes? Por exemplo, nos pinos 5, 6 e 9?
+
