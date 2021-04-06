@@ -351,6 +351,7 @@ void loop()
 - Perguntas:
   - É permitido declarar a variável ~int i = 0~ duas vezes (linhas 5 e 13)?
   - Por que após o led do pino 11 acender, o processo se repete? Qual a relação disso com o valor da variável ~i~?
+  - E se quiséssemos usar pinos não adjacentes? Por exemplo, pinos 3, 5 e 6?
 
 ** 2. Arrays
 - Da [[https://www.arduino.cc/reference/en/language/variables/data-types/array/][documentação]]:
@@ -437,5 +438,136 @@ void loop()
   }
 }
 #+end_src
+
+* AULA 06.x - 12/ABR
+** ~random()~
+
+- Relembrando o /princípio de modularidade/ que torna linguagens de programação tão poderosas: *funções podem ser argumentos de outras funções*!
+  - Outra maneira de pensar: funções (às vezes) /retornam valores/ que podem ser utilizados por outras funções.
+
+- Ex.1
+#+BEGIN_SRC c
+int pinoPiezzo = 7;
+int tempoDelay = 100;
+
+void setup()
+{
+  pinMode(pinoPiezzo, OUTPUT);
+}
+
+void loop()
+{
+  tone(pinoPiezzo, random(100, 500), 90);
+  delay(tempoDelay);
+}
+#+END_SRC
+
+- Pergunta. Sem avaliar o código, conseguem dizer qual a diferença de comportamento entre os Ex.2 e Ex.3 abaixo?
+
+-Ex.2
+#+BEGIN_SRC c
+int pinoPiezzo = 7;
+
+void setup()
+{
+  pinMode(pinoPiezzo, OUTPUT);
+}
+
+void loop()
+{ 
+  tone(pinoPiezzo, 100, 90);
+  delay(random(100, 1000));
+  tone(pinoPiezzo, 200, 90);
+  delay(random(100, 1000));
+  tone(pinoPiezzo, 300, 90);
+  delay(random(100, 1000));
+  tone(pinoPiezzo, 400, 90);
+  delay(random(100, 1000));
+}
+#+END_SRC
+
+-Ex.3
+#+BEGIN_SRC c
+int pinoPiezzo = 7;
+
+void setup()
+{
+  pinMode(pinoPiezzo, OUTPUT);
+}
+
+void loop()
+{
+  int tempoDelay = random(100, 1000);
+  
+  tone(pinoPiezzo, 100, 90);
+  delay(tempoDelay);
+  tone(pinoPiezzo, 200, 90);
+  delay(tempoDelay);
+  tone(pinoPiezzo, 300, 90);
+  delay(tempoDelay);
+  tone(pinoPiezzo, 400, 90);
+  delay(tempoDelay);
+}
+#+END_SRC
+
+- Ex.n
+  - Noise!
+#+BEGIN_SRC c
+int pinoPiezzo = 7;
+
+void setup()
+{
+  pinMode(pinoPiezzo, OUTPUT);
+}
+
+void loop()
+{
+  tone(pinoPiezzo, random(100, 500));
+}
+#+END_SRC
+
+- Ex.n
+  - Agora mais organizado, guardando o valor em uma variável:
+[talvez exemplo com 3 leds ligando e desligando? tem led rgb no kit?]
+#+BEGIN_SRC c
+void setup()
+{
+  
+}
+
+void loop()
+{
+  
+}
+#+END_SRC
+** Comunicação Serial
+- No Ex.2 temos ~tempoDelay = random(100, 1000)~. Perguntas:
+  - /Onde/ esse número está sendo gerado?
+  - Como podemos ver esse valor?
+
+- /Serial/ significando "em série", /um valor de cada vez/. 
+
+- Documentação: https://www.arduino.cc/reference/en/language/functions/communication/serial/
+  - 
+
+- Ex.n
+#+BEGIN_SRC c
+int valorRandomico;
+
+void setup()
+{
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  valorRandomico = random(100, 500);
+  
+  Serial.print("O numero sorteado foi: ");
+  Serial.println(valorRandomico);
+  
+  delay(1000);
+}
+#+END_SRC
 
 
