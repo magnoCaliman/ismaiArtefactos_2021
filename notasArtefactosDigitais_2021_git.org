@@ -442,13 +442,14 @@ void loop()
 * AULA 06.1 - 12/ABR
 - Continuação assunto aula 05.1
 * AULA 06.2 - 13/ABR
-** ~random()~
+** 1. ~random()~
 
 - Relembrando o /princípio de modularidade/ que torna linguagens de programação tão poderosas: *funções podem ser argumentos de outras funções*!
   - Outra maneira de pensar: funções (às vezes) /retornam valores/ que podem ser utilizados por outras funções.
 
 - Ex.1 - Piezo conectado ao pino 2.
   - Valor randômico de frequência a cada repetição do ~void loop()~
+  - ~random(100, 500)~ como segundo argumento da função ~tone()~. ~random()~ gera um valor, e /retorna/ esse valor para ~tone()~.
 #+BEGIN_SRC c
 int pinoPiezo = 2;
 int tempoDelay = 150;
@@ -464,8 +465,6 @@ void loop()
   delay(tempoDelay);
 }
 #+END_SRC
-
-- ~random(100, 500)~ como segundo argumento da função ~tone()~. ~random()~ gera um valor, e /retorna/ esse valor para ~tone()~.
 
 - Ex.2 - Piezo conectado ao pino 2.
   - Mesmo resultado do Ex.1, mas agora mais organizado, com valor guardado em uma variável. Atenção para os momentos diferentes de /declaração/ (linha 3) e /atribuição/ (linha 12).
@@ -489,7 +488,7 @@ void loop()
 #+end_src
 
 - Ex.3 - Piezo conectado ao pino 2.
-  - Pergunta: por quê o mesmo som é repetido 3 vezes?
+  - Pergunta: por quê o mesmo som é repetido 3 vezes? Qual a relação disso com a função ~random()~?
 #+begin_src c
 int pinoPiezo = 2;
 int tempoDelay = 150;
@@ -541,7 +540,7 @@ void loop()
     - ~min~: lower bound of the random value, *inclusive (optional)*.
     - ~max~: upper bound of the random value, *exclusive* .
 
-** Comunicação Serial
+** 2. Comunicação Serial
 - No Ex.2 temos ~freqRandomica = random(100, 500)~. Perguntas:
   - /Onde/ fisicamente esse número está sendo gerado?
   - Como podemos ver esse valor?
@@ -598,3 +597,9 @@ void loop()
 }
 #+END_SRC
 
+** 3. TPC
+*** 3.1 - linhaLed_repeticao
+[[./assets/aula06_2-tpc1.gif]]
+- Em uma lista de 9 leds, selecionar randomicamente um led, e piscar 3 vezes.
+*** 3.2 - sequenciador
+- Experimente livremente com piezo, criando listas de frequências, durações e delays, fazendo uso de seleções randômicas nessas listas.
