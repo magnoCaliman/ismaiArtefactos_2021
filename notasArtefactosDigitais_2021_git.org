@@ -439,135 +439,162 @@ void loop()
 }
 #+end_src
 
-# * AULA 06.x - 12/ABR
-# ** ~random()~
+* AULA 06.1 - 12/ABR
+- Continuação assunto aula 05.1
+* AULA 06.2 - 13/ABR
+** ~random()~
 
-# - Relembrando o /princípio de modularidade/ que torna linguagens de programação tão poderosas: *funções podem ser argumentos de outras funções*!
-#   - Outra maneira de pensar: funções (às vezes) /retornam valores/ que podem ser utilizados por outras funções.
+- Relembrando o /princípio de modularidade/ que torna linguagens de programação tão poderosas: *funções podem ser argumentos de outras funções*!
+  - Outra maneira de pensar: funções (às vezes) /retornam valores/ que podem ser utilizados por outras funções.
 
-# - Ex.1
-# #+BEGIN_SRC c
-# int pinoPiezzo = 7;
-# int tempoDelay = 100;
+- Ex.1 - Piezo conectado ao pino 2.
+  - Valor randômico de frequência a cada repetição do ~void loop()~
+#+BEGIN_SRC c
+int pinoPiezo = 2;
+int tempoDelay = 150;
 
-# void setup()
-# {
-#   pinMode(pinoPiezzo, OUTPUT);
-# }
+void setup()
+{
+  pinMode(pinoPiezo, OUTPUT);
+}
 
-# void loop()
-# {
-#   tone(pinoPiezzo, random(100, 500), 90);
-#   delay(tempoDelay);
-# }
-# #+END_SRC
+void loop()
+{
+  tone(pinoPiezo, random(100, 500), 80);
+  delay(tempoDelay);
+}
+#+END_SRC
 
-# - Pergunta. Sem avaliar o código, conseguem dizer qual a diferença de comportamento entre os Ex.2 e Ex.3 abaixo?
+- ~random(100, 500)~ como segundo argumento da função ~tone()~. ~random()~ gera um valor, e /retorna/ esse valor para ~tone()~.
 
-# -Ex.2
-# #+BEGIN_SRC c
-# int pinoPiezzo = 7;
+- Ex.2 - Piezo conectado ao pino 2.
+  - Mesmo resultado do Ex.1, mas agora mais organizado, com valor guardado em uma variável. Atenção para os momentos diferentes de /declaração/ (linha 3) e /atribuição/ (linha 12).
+#+begin_src c
+int pinoPiezo = 2;
+int tempoDelay = 150;
+int freqRandomica;
 
-# void setup()
-# {
-#   pinMode(pinoPiezzo, OUTPUT);
-# }
+void setup()
+{
+  pinMode(pinoPiezo, OUTPUT);
+}
 
-# void loop()
-# { 
-#   tone(pinoPiezzo, 100, 90);
-#   delay(random(100, 1000));
-#   tone(pinoPiezzo, 200, 90);
-#   delay(random(100, 1000));
-#   tone(pinoPiezzo, 300, 90);
-#   delay(random(100, 1000));
-#   tone(pinoPiezzo, 400, 90);
-#   delay(random(100, 1000));
-# }
-# #+END_SRC
-
-# -Ex.3
-# #+BEGIN_SRC c
-# int pinoPiezzo = 7;
-
-# void setup()
-# {
-#   pinMode(pinoPiezzo, OUTPUT);
-# }
-
-# void loop()
-# {
-#   int tempoDelay = random(100, 1000);
+void loop()
+{
+  freqRandomica = random(100, 500);
   
-#   tone(pinoPiezzo, 100, 90);
-#   delay(tempoDelay);
-#   tone(pinoPiezzo, 200, 90);
-#   delay(tempoDelay);
-#   tone(pinoPiezzo, 300, 90);
-#   delay(tempoDelay);
-#   tone(pinoPiezzo, 400, 90);
-#   delay(tempoDelay);
-# }
-# #+END_SRC
+  tone(pinoPiezo, freqRandomica, 80);
+  delay(tempoDelay);
+}
+#+end_src
 
-# - Ex.n
-#   - Noise!
-# #+BEGIN_SRC c
-# int pinoPiezzo = 7;
+- Ex.3 - Piezo conectado ao pino 2.
+  - Pergunta: por quê o mesmo som é repetido 3 vezes?
+#+begin_src c
+int pinoPiezo = 2;
+int tempoDelay = 150;
+int quantRepeticoes = 3;
+int freqRandomica;
 
-# void setup()
-# {
-#   pinMode(pinoPiezzo, OUTPUT);
-# }
+void setup()
+{
+  pinMode(pinoPiezo, OUTPUT);
+}
 
-# void loop()
-# {
-#   tone(pinoPiezzo, random(100, 500));
-# }
-# #+END_SRC
+void loop()
+{
+  freqRandomica = random(100, 500);
 
-# - Ex.n
-#   - Agora mais organizado, guardando o valor em uma variável:
-# [talvez exemplo com 3 leds ligando e desligando? tem led rgb no kit?]
-# #+BEGIN_SRC c
-# void setup()
-# {
+  for (int i = 0; i < quantRepeticoes; i = i + 1)
+  {
+    tone(pinoPiezo, freqRandomica, 80);
+    delay(tempoDelay);
+  }
+}
+#+end_src
+
+- Ex.4 - Piezo conectado ao pino 2.
+  - Selecionando item randomico em uma lista
+#+begin_src c
+int pinoPiezo = 2;
+int listaFrequencias[] = {100, 200, 300, 400, 350};
+int tamListaFreq = 5;
+int listaTemposDelay[] = {125, 250, 500};
+
+void setup()
+{
+  pinMode(pinoPiezo, OUTPUT);
+}
+
+void loop()
+{
+  for (int i = 0; i < tamListaFreq; i++)
+  {
+    tone(pinoPiezo, listaFrequencias[i], 90);
+    delay(listaTemposDelay[random(3)]);
+  }
+}
+#+end_src
+
+- Detalhe importante da documentação do ~random()~
+  - Parameters
+    - ~min~: lower bound of the random value, *inclusive (optional)*.
+    - ~max~: upper bound of the random value, *exclusive* .
+
+** Comunicação Serial
+- No Ex.2 temos ~freqRandomica = random(100, 500)~. Perguntas:
+  - /Onde/ fisicamente esse número está sendo gerado?
+  - Como podemos ver esse valor?
+
+- Documentação: https://www.arduino.cc/reference/en/language/functions/communication/serial/
+  - "Used for communication between the Arduino board and a computer or other devices"
+  - /Serial/ significando "em série", /um valor de cada vez/. 
+
+- Agora uma coleção de várias funções com o /mesmo prefixo/ são utilizadas: ~Serial.begin()~, ~Serial.println()~, entre outras.
+  - Atenção para a sintaxe de "dot notation": ~prefixo.funcao()~
+
+- Ex.5 - Arduino conectado ao computador
+  - Monitorando a porta serial através do menu ~Tools -> Serial Monitor~
+#+BEGIN_SRC c
+int valorRandomico;
+
+void setup()
+{
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  valorRandomico = random(100, 500);
+
+  Serial.print("O numero sorteado foi: ");
+  Serial.println(valorRandomico);
+
+  delay(1000);
+}
+#+END_SRC
+
+- Ex.6 - Piezo conectado ao pino 2.
+  - Como Ex.2. Valor randômico de frequência a cada repetição do ~void loop()~, mas agora podendo visualizar esses valores.
+#+BEGIN_SRC c
+int pinoPiezo = 2;
+int tempoDelay = 500;
+int freqRandomica;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(pinoPiezo, OUTPUT);
+}
+
+void loop()
+{
+  freqRandomica = random(100, 500);
   
-# }
+  tone(pinoPiezo, freqRandomica, 80);
+  delay(tempoDelay);
 
-# void loop()
-# {
-  
-# }
-# #+END_SRC
-# ** Comunicação Serial
-# - No Ex.2 temos ~tempoDelay = random(100, 1000)~. Perguntas:
-#   - /Onde/ esse número está sendo gerado?
-#   - Como podemos ver esse valor?
-
-# - /Serial/ significando "em série", /um valor de cada vez/. 
-
-# - Documentação: https://www.arduino.cc/reference/en/language/functions/communication/serial/
-#   - 
-
-# - Ex.n
-# #+BEGIN_SRC c
-# int valorRandomico;
-
-# void setup()
-# {
-#   Serial.begin(9600);
-# }
-
-# void loop()
-# {
-#   valorRandomico = random(100, 500);
-  
-#   Serial.print("O numero sorteado foi: ");
-#   Serial.println(valorRandomico);
-  
-#   delay(1000);
-# }
-# #+END_SRC
-
+  Serial.println(freqRandomica);
+}
+#+END_SRC
 
