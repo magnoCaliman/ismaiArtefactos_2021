@@ -598,6 +598,7 @@ void loop()
 #+END_SRC
 
 ** 3. TPC
+- Data de entrega: 19/04
 *** 3.1 - linhaLed_repeticao
 [[./assets/aula06_2-tpc1.gif]]
 - Em uma lista de 9 leds, selecionar randomicamente um led, e piscar 3 vezes.
