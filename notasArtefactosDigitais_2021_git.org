@@ -648,7 +648,7 @@ void loop()
 }
 #+END_SRC
 
-- Ao usar ~Serial.println()~, é sempre importante utilizar um ~delay()~ de alguns millisegundos para sobrecarregar a leitura do monitor serial.
+- Ao usar ~Serial.println()~, é sempre importante utilizar um ~delay()~ de alguns millisegundos para não sobrecarregar a leitura do monitor serial.
 
 ** 2. ~if()~
 
