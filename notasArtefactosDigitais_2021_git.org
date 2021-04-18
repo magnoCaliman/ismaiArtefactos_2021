@@ -604,3 +604,144 @@ void loop()
 - Em uma lista de 9 leds, selecionar randomicamente um led, e piscar 3 vezes.
 *** 3.2 - sequenciador
 - Experimente livremente com piezo, criando listas de frequências, durações e delays, fazendo uso de seleções randômicas nessas listas.
+* AULA 07.1 - 19/ABR
+** 1. ~digitalRead()~
+- Documentação: https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/
+
+- Ex.1 - digitalRead
+[[./assets/aula07_1-ex1.png]]
+#+BEGIN_SRC c
+void setup()
+{
+  pinMode(5, INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  Serial.println(digitalRead(5));
+  
+  delay(1000);
+}
+#+END_SRC
+
+- /Experimento: imprima no monitor serial a leitura de dois pinos, onde um está conectado à 5V, e outro não está conectado à nada. Qual a diferença de leitura?/ 
+
+- Ex.2 - leituraBotao
+[[./assets/aula07_1-ex2.png]]
+#+BEGIN_SRC c
+int pinoBotao = 2;
+int estadoBotao;
+
+void setup()
+{
+  pinMode(pinoBotao, INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  estadoBotao = digitalRead(pinoBotao);
+  
+  Serial.println(estadoBotao);
+  delay(100);
+}
+#+END_SRC
+
+- Ao usar ~Serial.println()~, é sempre importante utilizar um ~delay()~ de alguns millisegundos para sobrecarregar a leitura do monitor serial.
+
+** 2. ~if()~
+
+- Faz um teste /booleano/ e /condiciona/ a execução de um bloco de código à esse teste.
+
+#+BEGIN_SRC c
+if (teste)
+{
+  //bloco de código que é avaliado se 
+  //a condição do teste for verdadeira
+}
+#+END_SRC
+
+- Ex.3 - ligaLed_botao
+[[./assets/aula07_1-ex3.png]]
+#+BEGIN_SRC c
+int pinoBotao = 2;
+int pinoLed = 13;
+int estadoBotao;
+
+void setup()
+{
+  pinMode(pinoBotao, INPUT);
+  pinMode(pinoLed, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  estadoBotao = digitalRead(pinoBotao);
+  
+  if (estadoBotao == 1)
+  {
+    digitalWrite(pinoLed, HIGH);
+  }
+//  else
+//  {
+//  	digitalWrite(pinoLed, LOW);
+//  }
+  
+  Serial.println(estadoBotao);
+  delay(50);
+}
+#+END_SRC
+
+- Lembrando os operadores de comparação:
+#+BEGIN_SRC c
+x == y (x is equal to y)
+x != y (x is not equal to y)
+x <  y (x is less than y)
+x >  y (x is greater than y)
+x <= y (x is less than or equal to y)
+x >= y (x is greater than or equal to y)
+#+END_SRC
+Referência: https://www.arduino.cc/reference/en/language/structure/control-structure/if/
+
+- Ex.4 - Contador
+[[./assets/aula07_1-ex2.png]]
+#+BEGIN_SRC c
+int pinoBotao = 2;
+int contador = 0;
+int estadoBotao;
+
+void setup()
+{
+  pinMode(pinoBotao, INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  estadoBotao = digitalRead(pinoBotao);
+  
+  if (estadoBotao == HIGH)
+  {
+    contador = contador + 1;
+  }
+  
+  Serial.println(contador);  
+  delay(100);
+}
+#+END_SRC
+
+** 3. TPC
+- Data de entrega: 26/04
+*** 3.1 - led
+- Crie um circuito onde um LED possui um timer de desligamento: ao apertar um botão o LED acende, e após 3 segundos, desliga.
+
+*** 3.2 - piano
+- Usando buzzer e cinco botões, crie um pequeno piano, onde cada botão produz um som diferente.
+
+*** 3.3 - linhaLed_velocidade
+- Ao TPC 5.2 da aula 03.2, adicione dois botões que, ao serem pressionados, podem aumentar e diminuir a velocidade da animação dos leds.
+
+*** 3.4 - Desafio extra
+- Crie um circuito onde ao apertar um botão um LED acende /e permanece acesso/, e ao apertar de novo, o LED apague.
