@@ -666,7 +666,7 @@ if (teste)
 [[./assets/aula07_1-ex3.png]]
 #+BEGIN_SRC c
 int pinoBotao = 2;
-int pinoLed = 13;
+int pinoLed = 9;
 int estadoBotao;
 
 void setup()
