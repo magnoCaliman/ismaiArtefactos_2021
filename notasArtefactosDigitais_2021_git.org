@@ -748,12 +748,12 @@ void loop()
 * AULA 07.2 - 20/ABR
 - Continuação aula 07.1
 * AULA 08.1 - 26/ABR
-** Avaliação do semestre
-** Momento 2 - 25%
+** AVALIAÇÃO DO SEMESTRE
+*** Momento 2 - 25%
 - Entrega: 11/06
-** Momento 3 - 50%
+*** Momento 3 - 50%
 - Entrega: 16/06
-** Ponto de situação
+*** Ponto de situação
 - Apresentação: 17/05
 * AULA 08.2 - 27/ABR
 ** 1. Outros sensores digitais
