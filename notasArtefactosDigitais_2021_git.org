@@ -745,3 +745,60 @@ void loop()
 
 *** 3.4 - Desafio extra
 - Crie um circuito onde ao apertar um botão um LED acende /e permanece acesso/, e ao apertar de novo, o LED apague.
+* AULA 07.2 - 20/ABR
+- Continuação aula 07.1
+* AULA 08.1 - 26/ABR
+** Avaliação do semestre
+** Momento 2 - 25%
+- Entrega: 11/06
+** Momento 3 - 50%
+- Entrega: 16/06
+** Ponto de situação
+- Apresentação: 17/05
+* AULA 08.2 - 27/ABR
+** 1. Outros sensores digitais
+*** 1.1 Tilt Switch
+
+- Ex.1 - tiltSwitch
+[[./assets/aula08_2-ex1.png]]
+#+begin_src c
+int pinoSensor = 7;
+int estadoSensor;
+
+void setup()
+{
+  pinMode(pinoSensor, INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  estadoSensor = digitalRead(pinoSensor);
+  
+  Serial.println(estadoSensor);
+  delay(100);
+}
+#+end_src
+
+- Importante: o terminal do sensor de inclinação que é lido pelo Arduino precisa de um resistor conectando esse terminal ao GND. 
+
+*** 1.2 (Ainda) outros sensores digitais
+- PIR - Passive Infrared Sensor
+  - https://en.wikipedia.org/wiki/Passive_infrared_sensor
+  - https://learn.adafruit.com/pir-passive-infrared-proximity-motion-sensor/how-pirs-work
+- Reed switch
+  - https://learn.sparkfun.com/tutorials/reed-switch-hookup-guide/all
+  - https://www.youtube.com/watch?v=oum4zNXg7zs
+- Sensor de toque capacitivo
+  - https://learn.adafruit.com/adafruit-capacitive-touch-sensor-breakouts
+
+- Perceba que o código do Ex.1 dessa aula é idêntico ao Ex.2 da aula 07.1. A lógica do algoritmo é a mesma: ler o estado de um sensor booleano (~HIGH~ ou ~LOW~) através de um pino digital, guardar esse estado em uma variável, e monitorar o valor através da porta serial. O mesmo modelo serve para qualquer sensor booleano/digital (botões, sensores de infravermelho, inclinação, etc) já que independentemente de como seus circuitos funcionam, seus /outputs/ elétricos são idênticos: alternância digitais (ou seja, sem valores intermediários) entre um valor mínimo (em geral 0V) e máximo (em geral 3.3V ou 5V).
+- A escolha de um sensor digital então se torna uma questão não de eletrônica ou de programação, mas de /design de interação/. O que é mais adequado para minha aplicação?
+  - Detalhe para pensar: alguns sensores, como o de inclinação, possuem /interações analógicas/ (existem infinitas posições que o sensor pode estar) porém /respostas digitais/ (em algum momento sua leitura muda instantaneamente de ~HIGH~ para ~LOW~). 
+
+** 2. TPC
+- Data de entrega: 03/05
+*** 2.1 - inclinaLed
+- Crie um circuito que liga um led quando um sensor de inclinação é ativado.
+*** 2.2 - maracas
+- Usando os dois sensores de inclinação do kit, crie duas [[https://www.youtube.com/watch?v=GZ2I7HhPKfE][maracas]] interativas, que geram um som diferente randomico cada vez que os sensores são ativados.
