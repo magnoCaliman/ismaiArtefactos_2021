@@ -802,3 +802,58 @@ void loop()
 - Crie um circuito que liga um led quando um sensor de inclinação é ativado.
 *** 2.2 - maracas
 - Usando os dois sensores de inclinação do kit, crie duas [[https://www.youtube.com/watch?v=GZ2I7HhPKfE][maracas]] interativas, que geram um som diferente randomico cada vez que os sensores são ativados.
+
+* AULA 09.1 - 03/MAI
+- Para reposição
+* AULA 09.2 - 04/MAI
+** 1. Potenciômetros
+- /Rocha, H - Introdução à Eletrônica Para Artistas - p.38/
+  - "Potenciômetros são *resistores variáveis*"
+
+- Ex.1 - potBateria - https://www.tinkercad.com/things/2ErxV1kOcuV
+
+** 2. ~analogRead()~
+- Documentação - https://www.arduino.cc/reference/en/language/functions/analog-io/analogread/
+
+- Ex.2 - analogRead
+[[./assets/aula09-1_ex2.png]]
+
+#+BEGIN_SRC c
+int pinoSensor = A0;
+int valorSensor;
+
+void setup()
+{
+  pinMode(pinoSensor, INPUT); // pinos analógicos são configurados como INPUT automaticamente
+                              // portanto essa linha é redundante
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  valorSensor = analogRead(pinoSensor);
+  
+  Serial.println(valorSensor);
+  delay(100);
+}
+#+END_SRC
+
+- Da documentação:
+  - /If the analog input pin is not connected to anything, the value returned by analogRead() will fluctuate based on a number of factors (e.g. the values of the other analog inputs, how close your hand is to the board, etc.)/
+
+** 3. Analógico vs. Digital
+- Perguntas:
+  - De onde vem o valor 1023 retornado pela função ~analogRead()~?
+  - Por que no Processing, ~fill(255)~ é o maior valor de cor?
+
+- Conceitos importantes:
+  - Resolução
+  - Conversão
+
+- Quantos pontos existem em uma reta?
+
+** 4. TPC
+*** 4.1 - blinkPot
+- Construa um circuito onde um potenciômetro controla o tempo de piscagem de um LED.
+*** 4.2 - toneRandomPot
+- Ao exemplo 2 da aula 06.2, investigue e proponha a adição de um potenciômetro como forma de interação.
