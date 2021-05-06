@@ -857,3 +857,155 @@ void loop()
 - Construa um circuito onde um potenciômetro controla o tempo de piscagem de um LED.
 *** 4.2 - toneRandomPot
 - Ao exemplo 2 da aula 06.2, investigue e proponha a adição de um potenciômetro como forma de interação.
+* AULA 10.1 - 10/MAI
+** 1. ~analogWrite()~
+- Ex.1 - Led conectado ao pino 3
+#+BEGIN_SRC c
+int pinoLed = 3;
+int brilhoLed = 255;
+
+void setup()
+{
+  pinMode(pinoLed, OUTPUT);
+}
+
+void loop()
+{
+  analogWrite(pinoLed, brilhoLed);
+
+  //experimente com outros valores para a variável brilhoLed
+  //aqui vão algumas sugestões:
+  
+  //brilhoLed = 1;
+  //brilhoLed = 50;
+  //brilhoLed = 150;
+  //brilhoLed = 255;
+}
+#+END_SRC
+
+- Ex.2 - Led conectado ao pino 3
+#+BEGIN_SRC c
+int pinoLed = 3;
+int brilhoLed = 0;
+
+void setup()
+{
+  pinMode(pinoLed, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  analogWrite(pinoLed, brilhoLed);
+
+  brilhoLed = brilhoLed + 1;
+
+  if (brilhoLed > 255)
+  {
+    brilhoLed = 0;
+  }
+
+  Serial.println(brilhoLed);
+}
+#+END_SRC
+
+- Perguntas:
+  - Quais voltagens estão saíndo do pino 3?
+  - Quais pinos usar com ~analogWrite()~?
+    - PWM: https://www.arduino.cc/en/Tutorial/PWM
+
+** 2. RESUMÃO
+- *Leituras* de valores analógicos (como ler um potenciômetro) são feitas nos pinos ~A0~ até ~A5~
+  - Essas leituras usam a função ~analogRead()~ e tem resolução /entre 0 e 1023/.
+
+- *Escritas* de valores analógicos (como controlar o brilho de um led) são feitas nos pinos digitais, mas somente nos pinos que suportam PWM.
+  - Essas escritas usam a função ~analogWrite()~ e tem resolução /entre 0 e 255/.
+
+** 3. TPC
+*** 3.1 - brilhoBotoes
+- Crie um circuito onde dois botões controlam o brilho de um led: ao permanecer pressionado um dos botões, o led gradualmente fica mais brilhante, e vice-versa.
+* AULA 10.2 - 11/MAI
+** 1. ~analogWrite()~ (uma vez mais...)
+- Ex.1 - Led conectado ao pino 9
+#+BEGIN_SRC c
+int pinoLed = 9; // o pino 9 aceita PWM!
+int brilhoLed = 0;
+
+void setup()
+{
+  pinMode(pinoLed, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  brilhoLed = brilhoLed + 1;
+  analogWrite(pinoLed, brilhoLed);
+  
+  Serial.println(brilhoLed);
+}
+#+END_SRC
+
+- Revisando: a função ~analogWrite()~ consegue /simular/ valores analógicos (em alguns pinos), dividindo os 5V do pino digital com uma /resolução máxima/ limitada à 256 valores diferentes (variando entre 0-255).
+
+- Pergunta:
+  - O que acontece então se escrevermos valores maiores que 255 como argumento de ~analogWrite()~?
+** 2. ~map()~
+- Documentação: https://www.arduino.cc/reference/en/language/functions/math/map/
+
+- Ex.2 - Potenciômetro conectado ao pino A0
+#+BEGIN_SRC c
+int pinoPot = A0;
+int leituraPot;
+
+void setup()
+{
+  pinMode(pinoPot, INPUT);
+  
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  leituraPot = analogRead(pinoPot);
+  Serial.print("valor original: ");
+  Serial.println(leituraPot);
+  
+  int leituraPot_mapeado = map(leituraPot, 0, 1023, 0, 500); //pq 0, 500?
+  Serial.print("valor mapeado: ");
+  Serial.println(leituraPot_mapeado);
+  
+  delay(100);  //quando envolve conversão, pinos analógicos, e print de valores
+               //convém deixar um delay curto ao fim do programa
+}
+#+END_SRC
+
+- Revisando: ~analogRead()~ converte uma variação de 0-5V para valores entre 0-1023.
+- ~map()~ escalona proporcionalmente um /âmbito de entrada/ para um /âmbito de saída/. 
+  - É como reescrever os números em uma régua...
+** 3. ~analogRead()~ + ~analogWrite()~ + ~map()~
+- Ex.3 - Potenciômetro conectado ao pino A0 e led conectado ao pino 9
+#+BEGIN_SRC c
+int pinoPot = A0;
+int pinoLed = 9;
+int leituraPot;
+
+void setup()
+{
+  pinMode(pinoPot, INPUT);
+  pinMode(pinoLed, OUTPUT);
+  
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  leituraPot = analogRead(pinoPot);
+  
+  leituraPot = map(leituraPot, 0, 1023, 0, 255);
+  analogWrite(pinoLed, leituraPot);
+  
+  Serial.println(leituraPot);
+  delay(10);
+}
+#+END_SRC
