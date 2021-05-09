@@ -859,6 +859,7 @@ void loop()
 - Ao exemplo 2 da aula 06.2, investigue e proponha a adição de um potenciômetro como forma de interação.
 * AULA 10.1 - 10/MAI
 ** 1. ~analogWrite()~
+- Documentação: https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/
 - Ex.1 - Led conectado ao pino 3
 #+BEGIN_SRC c
 int pinoLed = 3;
@@ -877,7 +878,7 @@ void loop()
   //aqui vão algumas sugestões:
   
   //brilhoLed = 1;
-  //brilhoLed = 50;
+  //brilhoLed = 10;
   //brilhoLed = 150;
   //brilhoLed = 255;
 }
@@ -906,6 +907,7 @@ void loop()
   }
 
   Serial.println(brilhoLed);
+  delay(10);
 }
 #+END_SRC
 
@@ -924,6 +926,10 @@ void loop()
 ** 3. TPC
 *** 3.1 - brilhoBotoes
 - Crie um circuito onde dois botões controlam o brilho de um led: ao permanecer pressionado um dos botões, o led gradualmente fica mais brilhante, e vice-versa.
+
+*** 3.2 - fadeInOut
+- Modifique o Ex.2 da aula de hoje de modo que o led, após o fade in, faça um fade out, e repita esse processo em loop.
+
 * AULA 10.2 - 11/MAI
 ** 1. ~analogWrite()~ (uma vez mais...)
 - Ex.1 - Led conectado ao pino 9
