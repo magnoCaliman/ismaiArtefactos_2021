@@ -853,6 +853,7 @@ void loop()
 - Quantos pontos existem em uma reta?
 
 ** 4. TPC
+- Data de entrega: 11/05
 *** 4.1 - blinkPot
 - Construa um circuito onde um potenciômetro controla o tempo de piscagem de um LED.
 *** 4.2 - toneRandomPot
@@ -924,6 +925,7 @@ void loop()
   - Essas escritas usam a função ~analogWrite()~ e tem resolução /entre 0 e 255/.
 
 ** 3. TPC
+- Data de entrega: 18/05
 *** 3.1 - brilhoBotoes
 - Crie um circuito onde dois botões controlam o brilho de um led: ao permanecer pressionado um dos botões, o led gradualmente fica mais brilhante, e vice-versa.
 
