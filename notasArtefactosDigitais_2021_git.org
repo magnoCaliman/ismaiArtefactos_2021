@@ -1015,3 +1015,9 @@ void loop()
   delay(10);
 }
 #+END_SRC
+
+** 4. TPC
+- Entrega via upload no portal de descrição escrita (entre 200 e 500 palavras) do conceito e proposta para os momentos 2 e 3 de avaliação.
+  - Data de entrega: 16/05, para discussão na aula do dia 17/05.
+
+- *AVISO IMPORTANTE:* a aula presencial do dia 18/05 não acontecerá e será remarcada no sistema para outra data.
