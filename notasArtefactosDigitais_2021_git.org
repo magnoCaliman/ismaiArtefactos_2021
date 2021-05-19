@@ -1031,5 +1031,5 @@ void loop()
   - Remarcado dia 26/05
 * AULA 12.1 - 24/MAI
 - Orientação de projetos
-* AULA 09.2 + 11.2 - 26/MAI
+* AULA 09.2 && 11.2 - 26/MAI
 - Compensação das aulas dos dias 03/05 & 18/05
