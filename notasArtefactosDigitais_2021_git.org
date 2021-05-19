@@ -805,6 +805,7 @@ void loop()
 
 * AULA 09.1 - 03/MAI
 - Para reposição
+  - Remarcado dia 26/05
 * AULA 09.2 - 04/MAI
 ** 1. Potenciômetros
 - /Rocha, H - Introdução à Eletrônica Para Artistas - p.38/
@@ -1023,3 +1024,12 @@ void loop()
   - Data de entrega: 16/05, para discussão na aula do dia 17/05.
 
 - *AVISO IMPORTANTE:* a aula presencial do dia 18/05 não acontecerá e será remarcada no sistema para outra data.
+* AULA 11.1 - 17/MAI
+- Orientação de projetos
+* AULA 11.2 - 18/MAI
+- Para reposição
+  - Remarcado dia 26/05
+* AULA 12.1 - 24/MAI
+- Orientação de projetos
+* AULA 09.2 + 11.2 - 26/MAI
+- Compensação das aulas dos dias 03/05 & 18/05
