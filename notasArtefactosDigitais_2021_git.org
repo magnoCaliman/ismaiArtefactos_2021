@@ -1031,6 +1031,6 @@ void loop()
 - Orientação de projetos
 * AULA 12.2 - 25/MAI
 - Orientação de projetos
-* AULA 09.2 && 11.2 - 26/MAI
+* AULA 12.3 && 12.4 - 26/MAI
 - Compensação das aulas dos dias 03/05 & 18/05
 - Orientação de projetos
