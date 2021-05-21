@@ -1,5 +1,4 @@
 * AULA 01.1 - 01/MAR
-
 ** Material
 - Kit de componentes
   - https://mauser.pt/catalog/product_info.php?cPath=1667_2842&products_id=096-6785
@@ -42,7 +41,6 @@
   - Exploding electronic components in HD - https://www.youtube.com/watch?v=JCPXckfT-6g
 * AULA 02.1 - 08/MAR
 - Continuação discussão Aula 01.2
-
 * AULA 02.2 - 09/MAR
 ** 1. O que é?
   - https://www.arduino.cc/
@@ -1030,6 +1028,8 @@ void loop()
 - Para reposição
   - Remarcado dia 26/05
 * AULA 12.1 - 24/MAI
+- Orientação de projetos
+* AULA 12.2 - 25/MAI
 - Orientação de projetos
 * AULA 09.2 && 11.2 - 26/MAI
 - Compensação das aulas dos dias 03/05 & 18/05
